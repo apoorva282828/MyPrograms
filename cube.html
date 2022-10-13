@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <style>
+        *
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: rgb(21, 2, 21);
+}
+.cube {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    transform-style: preserve-3d;
+    transform: rotateX(-25deg);
+    animation: animate 4s linear infinite;
+}
+@keyframes animate 
+{
+    0% 
+    {
+        transform: rotateX(-25deg) rotateY(0deg);
+    }
+    100% 
+    {
+        transform: rotateX(-25deg) rotateY(360deg);
+    }
+}
+.cube div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+.cube div span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgb(22, 1, 22), rgb(244, 252, 11));
+    transform: rotateY(calc(90deg * var(--i))) translateZ(125px);
+}
+.top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 250px;
+    background: #222;
+    transform: rotateX(90deg) translateZ(125px);
+}
+.top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 250px;
+    background: rgb(244, 252, 11);
+    transform: translateZ(-300px);
+    filter: blur(20px);
+}
+    </style>
+</head>
+<body>
+    <div class="cube">
+        <div class="top"></div>
+        <div>
+            <span style="--i:0"></span>
+            <span style="--i:1"></span>
+            <span style="--i:2"></span>
+            <span style="--i:3"></span>
+        </div>
+    </div>
+</body>
+</html>
